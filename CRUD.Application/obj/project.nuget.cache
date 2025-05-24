@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "wBdhyq4p8fA=",
+  "success": true,
+  "projectFilePath": "C:\\git\\study\\backend\\CRUD.Api\\CRUD.Application\\CRUD.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ArthurFinardi\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
+    "C:\\Users\\ArthurFinardi\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.0.0\\fluentvalidation.dependencyinjectionextensions.12.0.0.nupkg.sha512",
+    "C:\\Users\\ArthurFinardi\\.nuget\\packages\\mediatr\\12.5.0\\mediatr.12.5.0.nupkg.sha512",
+    "C:\\Users\\ArthurFinardi\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\ArthurFinardi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
