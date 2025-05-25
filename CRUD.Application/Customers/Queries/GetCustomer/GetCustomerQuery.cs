@@ -1,17 +1,17 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using CRUD.Application.Common.Interfaces;
+using CRUD.Domain.Interfaces;
 using MediatR;
 
 namespace CRUD.Application.Customers.Queries.GetCustomer
 {
-    public class GetCustomerQuery : IQuery<GetCustomerDto>
+    public class GetCustomerQuery : IRequest<GetCustomerViewModel>
     {
         public Guid Id { get; set; }
     }
 
-    public class GetCustomerQueryHandler : IRequestHandler<GetCustomerQuery, GetCustomerDto>
+    public class GetCustomerQueryHandler : IRequestHandler<GetCustomerQuery, GetCustomerViewModel>
     {
         private readonly ICustomerRepository _customerRepository;
 
@@ -20,16 +20,13 @@ namespace CRUD.Application.Customers.Queries.GetCustomer
             _customerRepository = customerRepository;
         }
 
-        public async Task<GetCustomerDto> Handle(GetCustomerQuery request, CancellationToken cancellationToken)
+        public async Task<GetCustomerViewModel> Handle(GetCustomerQuery request, CancellationToken cancellationToken)
         {
             var customer = await _customerRepository.GetByIdAsync(request.Id, cancellationToken);
-            
             if (customer == null)
-            {
-                throw new InvalidOperationException($"Cliente com ID {request.Id} não encontrado.");
-            }
+                return null;
 
-            return new GetCustomerDto
+            return new GetCustomerViewModel
             {
                 Id = customer.Id,
                 Name = customer.Name,
@@ -40,7 +37,7 @@ namespace CRUD.Application.Customers.Queries.GetCustomer
                 BirthDate = customer.BirthDate,
                 StateRegistration = customer.StateRegistration,
                 IsStateRegistrationExempt = customer.IsStateRegistrationExempt,
-                Address = new AddressDto
+                Address = new AddressViewModel
                 {
                     ZipCode = customer.Address.ZipCode,
                     Street = customer.Address.Street,
@@ -53,5 +50,31 @@ namespace CRUD.Application.Customers.Queries.GetCustomer
                 UpdatedAt = customer.UpdatedAt
             };
         }
+    }
+
+    public class GetCustomerViewModel
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string Document { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string Type { get; set; }
+        public DateTime? BirthDate { get; set; }
+        public string StateRegistration { get; set; }
+        public bool IsStateRegistrationExempt { get; set; }
+        public AddressViewModel Address { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+    }
+
+    public class AddressViewModel
+    {
+        public string ZipCode { get; set; }
+        public string Street { get; set; }
+        public string Number { get; set; }
+        public string Neighborhood { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
     }
 } 
