@@ -1,33 +1,44 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using CRUD.Application.Common.Interfaces;
 using CRUD.Domain.Entities;
+using CRUD.Domain.Enums;
+using CRUD.Domain.Events;
+using CRUD.Domain.Interfaces;
 using CRUD.Domain.ValueObjects;
 using MediatR;
 
 namespace CRUD.Application.Customers.Commands.CreateCustomer
 {
-    public class CreateCustomerCommand : ICommand<Guid>
+    public class CreateCustomerCommand : IRequest<Guid>
     {
         public string Name { get; set; }
         public string Document { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public Domain.Enums.CustomerType Type { get; set; }
+        public CustomerType Type { get; set; }
         public DateTime? BirthDate { get; set; }
         public string StateRegistration { get; set; }
         public bool IsStateRegistrationExempt { get; set; }
-        public AddressDto Address { get; set; }
+        public string ZipCode { get; set; }
+        public string Street { get; set; }
+        public string Number { get; set; }
+        public string Neighborhood { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
     }
 
     public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, Guid>
     {
         private readonly ICustomerRepository _customerRepository;
+        private readonly IEventStore _eventStore;
 
-        public CreateCustomerCommandHandler(ICustomerRepository customerRepository)
+        public CreateCustomerCommandHandler(
+            ICustomerRepository customerRepository,
+            IEventStore eventStore)
         {
             _customerRepository = customerRepository;
+            _eventStore = eventStore;
         }
 
         public async Task<Guid> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
@@ -47,12 +58,12 @@ namespace CRUD.Application.Customers.Commands.CreateCustomer
             }
 
             var address = new Address(
-                request.Address.ZipCode,
-                request.Address.Street,
-                request.Address.Number,
-                request.Address.Neighborhood,
-                request.Address.City,
-                request.Address.State
+                request.ZipCode,
+                request.Street,
+                request.Number,
+                request.Neighborhood,
+                request.City,
+                request.State
             );
 
             var customer = new Customer(
@@ -68,6 +79,7 @@ namespace CRUD.Application.Customers.Commands.CreateCustomer
             );
 
             await _customerRepository.AddAsync(customer, cancellationToken);
+            await _eventStore.SaveEvent(new CustomerCreatedEvent(customer), "CustomerCreated");
 
             return customer.Id;
         }

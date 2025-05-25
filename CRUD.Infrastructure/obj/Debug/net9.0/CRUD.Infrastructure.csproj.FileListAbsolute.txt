@@ -1,0 +1,6 @@
+C:\git\study\backend\CRUD.Api\CRUD.Infrastructure\obj\Debug\net9.0\CRUD.Infrastructure.csproj.AssemblyReference.cache
+C:\git\study\backend\CRUD.Api\CRUD.Infrastructure\obj\Debug\net9.0\CRUD.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\git\study\backend\CRUD.Api\CRUD.Infrastructure\obj\Debug\net9.0\CRUD.Infrastructure.AssemblyInfoInputs.cache
+C:\git\study\backend\CRUD.Api\CRUD.Infrastructure\obj\Debug\net9.0\CRUD.Infrastructure.AssemblyInfo.cs
+C:\git\study\backend\CRUD.Api\CRUD.Infrastructure\obj\Debug\net9.0\CRUD.Infrastructure.csproj.CoreCompileInputs.cache
+C:\git\study\backend\CRUD.Api\CRUD.Infrastructure\obj\Debug\net9.0\CRUD.Infrastructure.sourcelink.json

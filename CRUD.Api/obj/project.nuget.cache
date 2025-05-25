@@ -1,11 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "yillnLoB52Y=",
+  "dgSpecHash": "WFOMETpeTO8=",
   "success": true,
   "projectFilePath": "C:\\git\\study\\backend\\CRUD.Api\\CRUD.Api\\CRUD.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ArthurFinardi\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.0\\microsoft.aspnetcore.openapi.9.0.0.nupkg.sha512",
-    "C:\\Users\\ArthurFinardi\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+    "C:\\Users\\ArthurFinardi\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\ArthurFinardi\\.nuget\\packages\\microsoft.openapi\\1.6.23\\microsoft.openapi.1.6.23.nupkg.sha512",
+    "C:\\Users\\ArthurFinardi\\.nuget\\packages\\swashbuckle.aspnetcore\\8.1.2\\swashbuckle.aspnetcore.8.1.2.nupkg.sha512",
+    "C:\\Users\\ArthurFinardi\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\8.1.2\\swashbuckle.aspnetcore.swagger.8.1.2.nupkg.sha512",
+    "C:\\Users\\ArthurFinardi\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\8.1.2\\swashbuckle.aspnetcore.swaggergen.8.1.2.nupkg.sha512",
+    "C:\\Users\\ArthurFinardi\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\8.1.2\\swashbuckle.aspnetcore.swaggerui.8.1.2.nupkg.sha512"
   ],
   "logs": []
 }

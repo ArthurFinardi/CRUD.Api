@@ -1,4 +1,5 @@
 using CRUD.Domain.Entities;
+using CRUD.Infrastructure.EventStore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CRUD.Infrastructure.Data;
@@ -10,6 +11,7 @@ public class ApplicationDbContext : DbContext
     }
 
     public DbSet<Customer> Customers { get; set; }
+    public DbSet<EventData> EventStore { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -37,6 +39,15 @@ public class ApplicationDbContext : DbContext
 
             entity.HasIndex(e => e.Document).IsUnique();
             entity.HasIndex(e => e.Email).IsUnique();
+        });
+
+        modelBuilder.Entity<EventData>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.EventType).IsRequired();
+            entity.Property(e => e.Data).IsRequired();
+            entity.HasIndex(e => e.AggregateId);
+            entity.HasIndex(e => e.Timestamp);
         });
     }
 } 

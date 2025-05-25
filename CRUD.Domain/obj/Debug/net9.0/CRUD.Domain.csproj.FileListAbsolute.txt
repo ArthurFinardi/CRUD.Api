@@ -1,0 +1,13 @@
+C:\git\study\backend\CRUD.Api\CRUD.Domain\bin\Debug\net9.0\CRUD.Domain.deps.json
+C:\git\study\backend\CRUD.Api\CRUD.Domain\bin\Debug\net9.0\CRUD.Domain.dll
+C:\git\study\backend\CRUD.Api\CRUD.Domain\bin\Debug\net9.0\CRUD.Domain.pdb
+C:\git\study\backend\CRUD.Api\CRUD.Domain\obj\Debug\net9.0\CRUD.Domain.csproj.AssemblyReference.cache
+C:\git\study\backend\CRUD.Api\CRUD.Domain\obj\Debug\net9.0\CRUD.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\git\study\backend\CRUD.Api\CRUD.Domain\obj\Debug\net9.0\CRUD.Domain.AssemblyInfoInputs.cache
+C:\git\study\backend\CRUD.Api\CRUD.Domain\obj\Debug\net9.0\CRUD.Domain.AssemblyInfo.cs
+C:\git\study\backend\CRUD.Api\CRUD.Domain\obj\Debug\net9.0\CRUD.Domain.csproj.CoreCompileInputs.cache
+C:\git\study\backend\CRUD.Api\CRUD.Domain\obj\Debug\net9.0\CRUD.Domain.sourcelink.json
+C:\git\study\backend\CRUD.Api\CRUD.Domain\obj\Debug\net9.0\CRUD.Domain.dll
+C:\git\study\backend\CRUD.Api\CRUD.Domain\obj\Debug\net9.0\refint\CRUD.Domain.dll
+C:\git\study\backend\CRUD.Api\CRUD.Domain\obj\Debug\net9.0\CRUD.Domain.pdb
+C:\git\study\backend\CRUD.Api\CRUD.Domain\obj\Debug\net9.0\ref\CRUD.Domain.dll

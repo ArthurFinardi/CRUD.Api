@@ -1,0 +1,95 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\git\\study\\backend\\CRUD.Api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F0841ACB-FFEF-4C22-84C0-E8089F9955FE}|CRUD.Domain\\CRUD.Domain.csproj|c:\\git\\study\\backend\\crud.api\\crud.domain\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F0841ACB-FFEF-4C22-84C0-E8089F9955FE}|CRUD.Domain\\CRUD.Domain.csproj|solutionrelative:crud.domain\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6365E7F6-6E47-4D01-BE1F-5789E4797658}|CRUD.Infrastructure\\CRUD.Infrastructure.csproj|c:\\git\\study\\backend\\crud.api\\crud.infrastructure\\repositories\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6365E7F6-6E47-4D01-BE1F-5789E4797658}|CRUD.Infrastructure\\CRUD.Infrastructure.csproj|solutionrelative:crud.infrastructure\\repositories\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87996492-5CB6-4E96-B2D3-170702CB78EA}|CRUD.Api\\CRUD.Api.csproj|c:\\git\\study\\backend\\crud.api\\crud.api\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87996492-5CB6-4E96-B2D3-170702CB78EA}|CRUD.Api\\CRUD.Api.csproj|solutionrelative:crud.api\\controllers\\clientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\git\\study\\backend\\CRUD.Api\\CRUD.Domain\\Entities\\Customer.cs",
+              "RelativeDocumentMoniker": "CRUD.Domain\\Entities\\Customer.cs",
+              "ToolTip": "C:\\git\\study\\backend\\CRUD.Api\\CRUD.Domain\\Entities\\Customer.cs",
+              "RelativeToolTip": "CRUD.Domain\\Entities\\Customer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T00:03:28.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CustomerRepository.cs",
+              "DocumentMoniker": "C:\\git\\study\\backend\\CRUD.Api\\CRUD.Infrastructure\\Repositories\\CustomerRepository.cs",
+              "RelativeDocumentMoniker": "CRUD.Infrastructure\\Repositories\\CustomerRepository.cs",
+              "ToolTip": "C:\\git\\study\\backend\\CRUD.Api\\CRUD.Infrastructure\\Repositories\\CustomerRepository.cs",
+              "RelativeToolTip": "CRUD.Infrastructure\\Repositories\\CustomerRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T00:03:12.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClientesController.cs",
+              "DocumentMoniker": "C:\\git\\study\\backend\\CRUD.Api\\CRUD.Api\\Controllers\\ClientesController.cs",
+              "RelativeDocumentMoniker": "CRUD.Api\\Controllers\\ClientesController.cs",
+              "ToolTip": "C:\\git\\study\\backend\\CRUD.Api\\CRUD.Api\\Controllers\\ClientesController.cs",
+              "RelativeToolTip": "CRUD.Api\\Controllers\\ClientesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T00:01:47.193Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

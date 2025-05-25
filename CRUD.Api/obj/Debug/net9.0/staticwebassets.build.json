@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "5J6UDeZV2Q7bwvQYW+psm5/NLgH6V2YsgrpCbRNF7sU=",
+  "Source": "CRUD.Api",
+  "BasePath": "_content/CRUD.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
