@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using CRUD.Application.Interfaces;
+using CRUD.Application.Common.ViewModels;
 using MediatR;
 
 namespace CRUD.Application.Customers.Queries.GetCustomers
@@ -71,15 +72,5 @@ namespace CRUD.Application.Customers.Queries.GetCustomers
         public required AddressViewModel Address { get; set; }
         public required DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
-    }
-
-    public class AddressViewModel
-    {
-        public required string ZipCode { get; set; }
-        public required string Street { get; set; }
-        public required string Number { get; set; }
-        public required string Neighborhood { get; set; }
-        public required string City { get; set; }
-        public required string State { get; set; }
     }
 } 
