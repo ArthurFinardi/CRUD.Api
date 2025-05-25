@@ -4,28 +4,29 @@ using System.Threading.Tasks;
 using CRUD.Domain.Entities;
 using CRUD.Domain.Enums;
 using CRUD.Domain.Events;
-using CRUD.Domain.Interfaces;
+using CRUD.Application.Interfaces;
 using CRUD.Domain.ValueObjects;
+using CRUD.Domain.Interfaces;
 using MediatR;
 
 namespace CRUD.Application.Customers.Commands.CreateCustomer
 {
     public class CreateCustomerCommand : IRequest<Guid>
     {
-        public string Name { get; set; }
-        public string Document { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
+        public required string Name { get; set; }
+        public required string Document { get; set; }
+        public required string Email { get; set; }
+        public required string Phone { get; set; }
         public CustomerType Type { get; set; }
         public DateTime? BirthDate { get; set; }
-        public string StateRegistration { get; set; }
+        public string? StateRegistration { get; set; }
         public bool IsStateRegistrationExempt { get; set; }
-        public string ZipCode { get; set; }
-        public string Street { get; set; }
-        public string Number { get; set; }
-        public string Neighborhood { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
+        public required string ZipCode { get; set; }
+        public required string Street { get; set; }
+        public required string Number { get; set; }
+        public required string Neighborhood { get; set; }
+        public required string City { get; set; }
+        public required string State { get; set; }
     }
 
     public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, Guid>
@@ -66,7 +67,7 @@ namespace CRUD.Application.Customers.Commands.CreateCustomer
                 request.State
             );
 
-            var customer = new Customer(
+            var customer = Customer.Create(
                 request.Name,
                 request.Document,
                 request.Email,

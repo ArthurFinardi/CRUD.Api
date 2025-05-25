@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CRUD.Domain.Entities;
 
-namespace CRUD.Application.Common.Interfaces
+namespace CRUD.Application.Interfaces
 {
     public interface ICustomerRepository
     {

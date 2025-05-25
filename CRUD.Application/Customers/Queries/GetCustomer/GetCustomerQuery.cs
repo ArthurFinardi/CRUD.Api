@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using CRUD.Domain.Interfaces;
+using CRUD.Application.Interfaces;
 using MediatR;
 
 namespace CRUD.Application.Customers.Queries.GetCustomer
@@ -33,7 +33,7 @@ namespace CRUD.Application.Customers.Queries.GetCustomer
                 Document = customer.Document,
                 Email = customer.Email,
                 Phone = customer.Phone,
-                Type = customer.Type,
+                Type = customer.Type.ToString(),
                 BirthDate = customer.BirthDate,
                 StateRegistration = customer.StateRegistration,
                 IsStateRegistrationExempt = customer.IsStateRegistrationExempt,
@@ -54,27 +54,27 @@ namespace CRUD.Application.Customers.Queries.GetCustomer
 
     public class GetCustomerViewModel
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Document { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Type { get; set; }
+        public required Guid Id { get; set; }
+        public required string Name { get; set; }
+        public required string Document { get; set; }
+        public required string Email { get; set; }
+        public required string Phone { get; set; }
+        public required string Type { get; set; }
         public DateTime? BirthDate { get; set; }
-        public string StateRegistration { get; set; }
-        public bool IsStateRegistrationExempt { get; set; }
-        public AddressViewModel Address { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public string? StateRegistration { get; set; }
+        public required bool IsStateRegistrationExempt { get; set; }
+        public required AddressViewModel Address { get; set; }
+        public required DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 
     public class AddressViewModel
     {
-        public string ZipCode { get; set; }
-        public string Street { get; set; }
-        public string Number { get; set; }
-        public string Neighborhood { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
+        public required string ZipCode { get; set; }
+        public required string Street { get; set; }
+        public required string Number { get; set; }
+        public required string Neighborhood { get; set; }
+        public required string City { get; set; }
+        public required string State { get; set; }
     }
 } 

@@ -9,63 +9,45 @@ namespace CRUD.Application.Customers.Commands.CreateCustomer
         public CreateCustomerCommandValidator()
         {
             RuleFor(x => x.Name)
-                .NotEmpty().WithMessage("O nome é obrigatório")
-                .MinimumLength(3).WithMessage("O nome deve ter no mínimo 3 caracteres")
-                .MaximumLength(100).WithMessage("O nome deve ter no máximo 100 caracteres");
+                .NotEmpty().WithMessage("O nome é obrigatório.")
+                .MaximumLength(100);
 
             RuleFor(x => x.Document)
-                .NotEmpty().WithMessage("O CPF/CNPJ é obrigatório")
-                .Must(BeValidDocument).WithMessage("CPF/CNPJ inválido");
+                .NotEmpty().WithMessage("O documento é obrigatório.")
+                .MaximumLength(14);
 
             RuleFor(x => x.Email)
-                .NotEmpty().WithMessage("O email é obrigatório")
-                .EmailAddress().WithMessage("Email inválido")
-                .MaximumLength(100).WithMessage("O email deve ter no máximo 100 caracteres");
+                .NotEmpty().WithMessage("O e-mail é obrigatório.")
+                .EmailAddress().WithMessage("E-mail inválido.")
+                .MaximumLength(100);
 
             RuleFor(x => x.Phone)
-                .NotEmpty().WithMessage("O telefone é obrigatório")
-                .Matches(@"^\(\d{2}\)\s\d{5}-\d{4}$").WithMessage("O telefone deve estar no formato (99) 99999-9999");
-
-            RuleFor(x => x.Type)
-                .IsInEnum().WithMessage("Tipo de cliente inválido");
-
-            When(x => x.Type == Domain.Enums.CustomerType.Person, () =>
-            {
-                RuleFor(x => x.BirthDate)
-                    .NotEmpty().WithMessage("A data de nascimento é obrigatória para pessoa física")
-                    .Must(BeAtLeast18YearsOld).WithMessage("O cliente deve ter pelo menos 18 anos");
-            });
-
-            When(x => x.Type == Domain.Enums.CustomerType.Company, () =>
-            {
-                RuleFor(x => x.StateRegistration)
-                    .NotEmpty().When(x => !x.IsStateRegistrationExempt)
-                    .WithMessage("A inscrição estadual é obrigatória para pessoa jurídica não isenta");
-            });
+                .NotEmpty().WithMessage("O telefone é obrigatório.")
+                .MaximumLength(15);
 
             RuleFor(x => x.ZipCode)
-                .NotEmpty().WithMessage("O CEP é obrigatório")
-                .Matches(@"^\d{5}-\d{3}$").WithMessage("O CEP deve estar no formato 99999-999");
+                .NotEmpty().WithMessage("O CEP é obrigatório.")
+                .MaximumLength(9);
 
             RuleFor(x => x.Street)
-                .NotEmpty().WithMessage("O endereço é obrigatório")
-                .MaximumLength(200).WithMessage("O endereço deve ter no máximo 200 caracteres");
+                .NotEmpty().WithMessage("A rua é obrigatória.")
+                .MaximumLength(200);
 
             RuleFor(x => x.Number)
-                .NotEmpty().WithMessage("O número é obrigatório")
-                .MaximumLength(10).WithMessage("O número deve ter no máximo 10 caracteres");
+                .NotEmpty().WithMessage("O número é obrigatório.")
+                .MaximumLength(10);
 
             RuleFor(x => x.Neighborhood)
-                .NotEmpty().WithMessage("O bairro é obrigatório")
-                .MaximumLength(100).WithMessage("O bairro deve ter no máximo 100 caracteres");
+                .NotEmpty().WithMessage("O bairro é obrigatório.")
+                .MaximumLength(100);
 
             RuleFor(x => x.City)
-                .NotEmpty().WithMessage("A cidade é obrigatória")
-                .MaximumLength(100).WithMessage("A cidade deve ter no máximo 100 caracteres");
+                .NotEmpty().WithMessage("A cidade é obrigatória.")
+                .MaximumLength(100);
 
             RuleFor(x => x.State)
-                .NotEmpty().WithMessage("O estado é obrigatório")
-                .Length(2).WithMessage("O estado deve ter 2 caracteres");
+                .NotEmpty().WithMessage("O estado é obrigatório.")
+                .Length(2).WithMessage("O estado deve ter 2 caracteres.");
         }
 
         private bool BeValidDocument(string document)

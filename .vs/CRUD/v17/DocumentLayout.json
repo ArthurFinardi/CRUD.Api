@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\git\\study\\backend\\CRUD.Api\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{87996492-5CB6-4E96-B2D3-170702CB78EA}|CRUD.Api\\CRUD.Api.csproj|c:\\git\\study\\backend\\crud.api\\crud.api\\controllers\\customerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87996492-5CB6-4E96-B2D3-170702CB78EA}|CRUD.Api\\CRUD.Api.csproj|solutionrelative:crud.api\\controllers\\customerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,6 +39,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CustomersController.cs",
+              "DocumentMoniker": "C:\\git\\study\\backend\\CRUD.Api\\CRUD.Api\\Controllers\\CustomersController.cs",
+              "RelativeDocumentMoniker": "CRUD.Api\\Controllers\\CustomersController.cs",
+              "ToolTip": "C:\\git\\study\\backend\\CRUD.Api\\CRUD.Api\\Controllers\\CustomersController.cs",
+              "RelativeToolTip": "CRUD.Api\\Controllers\\CustomersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T00:41:20.8Z",
+              "EditorCaption": ""
             }
           ]
         }

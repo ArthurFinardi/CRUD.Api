@@ -1,7 +1,8 @@
- using CRUD.Application.Interfaces;
+using CRUD.Application.Interfaces;
 using CRUD.Domain.Entities;
 using CRUD.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Threading;
 
 namespace CRUD.Infrastructure.Repositories;
 
@@ -14,50 +15,53 @@ public class CustomerRepository : ICustomerRepository
         _context = context;
     }
 
-    public async Task<Customer> GetByIdAsync(Guid id)
+    public async Task<Customer> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
         return await _context.Customers
             .Include(c => c.Address)
-            .FirstOrDefaultAsync(c => c.Id == id);
+            .FirstOrDefaultAsync(c => c.Id == id, cancellationToken);
     }
 
-    public async Task<IEnumerable<Customer>> GetAllAsync()
+    public async Task<IEnumerable<Customer>> GetAllAsync(CancellationToken cancellationToken = default)
     {
         return await _context.Customers
             .Include(c => c.Address)
-            .ToListAsync();
+            .ToListAsync(cancellationToken);
     }
 
-    public async Task<Customer> GetByDocumentAsync(string document)
+    public async Task<Customer> GetByDocumentAsync(string document, CancellationToken cancellationToken = default)
     {
         return await _context.Customers
             .Include(c => c.Address)
-            .FirstOrDefaultAsync(c => c.Document == document);
+            .FirstOrDefaultAsync(c => c.Document == document, cancellationToken);
     }
 
-    public async Task<Customer> GetByEmailAsync(string email)
+    public async Task<Customer> GetByEmailAsync(string email, CancellationToken cancellationToken = default)
     {
         return await _context.Customers
             .Include(c => c.Address)
-            .FirstOrDefaultAsync(c => c.Email == email);
+            .FirstOrDefaultAsync(c => c.Email == email, cancellationToken);
     }
 
-    public async Task<Guid> AddAsync(Customer customer)
+    public async Task AddAsync(Customer customer, CancellationToken cancellationToken = default)
     {
-        await _context.Customers.AddAsync(customer);
-        await _context.SaveChangesAsync();
-        return customer.Id;
+        await _context.Customers.AddAsync(customer, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task<bool> UpdateAsync(Customer customer)
+    public async Task UpdateAsync(Customer customer, CancellationToken cancellationToken = default)
     {
         _context.Customers.Update(customer);
-        return await _context.SaveChangesAsync() > 0;
+        await _context.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task<bool> DeleteAsync(Customer customer)
+    public async Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        _context.Customers.Remove(customer);
-        return await _context.SaveChangesAsync() > 0;
+        var customer = await _context.Customers.FindAsync(new object[] { id }, cancellationToken);
+        if (customer != null)
+        {
+            _context.Customers.Remove(customer);
+            await _context.SaveChangesAsync(cancellationToken);
+        }
     }
 }

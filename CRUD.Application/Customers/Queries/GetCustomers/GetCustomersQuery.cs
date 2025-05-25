@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using CRUD.Domain.Interfaces;
+using CRUD.Application.Interfaces;
 using MediatR;
 
 namespace CRUD.Application.Customers.Queries.GetCustomers
@@ -32,7 +32,7 @@ namespace CRUD.Application.Customers.Queries.GetCustomers
                     Document = c.Document,
                     Email = c.Email,
                     Phone = c.Phone,
-                    Type = c.Type,
+                    Type = c.Type.ToString(),
                     BirthDate = c.BirthDate,
                     StateRegistration = c.StateRegistration,
                     IsStateRegistrationExempt = c.IsStateRegistrationExempt,
@@ -54,32 +54,32 @@ namespace CRUD.Application.Customers.Queries.GetCustomers
 
     public class GetCustomersViewModel
     {
-        public List<CustomerViewModel> Customers { get; set; }
+        public required List<CustomerViewModel> Customers { get; set; }
     }
 
     public class CustomerViewModel
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Document { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Type { get; set; }
+        public required Guid Id { get; set; }
+        public required string Name { get; set; }
+        public required string Document { get; set; }
+        public required string Email { get; set; }
+        public required string Phone { get; set; }
+        public required string Type { get; set; }
         public DateTime? BirthDate { get; set; }
-        public string StateRegistration { get; set; }
-        public bool IsStateRegistrationExempt { get; set; }
-        public AddressViewModel Address { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public string? StateRegistration { get; set; }
+        public required bool IsStateRegistrationExempt { get; set; }
+        public required AddressViewModel Address { get; set; }
+        public required DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
     }
 
     public class AddressViewModel
     {
-        public string ZipCode { get; set; }
-        public string Street { get; set; }
-        public string Number { get; set; }
-        public string Neighborhood { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
+        public required string ZipCode { get; set; }
+        public required string Street { get; set; }
+        public required string Number { get; set; }
+        public required string Neighborhood { get; set; }
+        public required string City { get; set; }
+        public required string State { get; set; }
     }
 } 

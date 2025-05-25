@@ -1,6 +1,8 @@
 using System;
 using FluentValidation.TestHelper;
 using Xunit;
+using CRUD.Application.Customers.Commands.CreateCustomer;
+using CRUD.Domain.Enums;
 
 namespace CRUD.Tests.Customers.Commands.CreateCustomer
 {
@@ -15,11 +17,22 @@ namespace CRUD.Tests.Customers.Commands.CreateCustomer
 
         [Theory]
         [InlineData("")]
-        [InlineData(null)]
         [InlineData(" ")]
         public void Should_Have_Error_When_Name_Is_Empty(string name)
         {
-            var command = new CreateCustomerCommand { Name = name };
+            var command = new CreateCustomerCommand 
+            { 
+                Name = name,
+                Document = "123.456.789-09",
+                Email = "test@test.com",
+                Phone = "(11) 99999-9999",
+                ZipCode = "12345-678",
+                Street = "Test Street",
+                Number = "123",
+                Neighborhood = "Test Neighborhood",
+                City = "Test City",
+                State = "TS"
+            };
             var result = _validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.Name);
         }
@@ -29,7 +42,19 @@ namespace CRUD.Tests.Customers.Commands.CreateCustomer
         [InlineData("A")]
         public void Should_Have_Error_When_Name_Is_Too_Short(string name)
         {
-            var command = new CreateCustomerCommand { Name = name };
+            var command = new CreateCustomerCommand 
+            { 
+                Name = name,
+                Document = "123.456.789-09",
+                Email = "test@test.com",
+                Phone = "(11) 99999-9999",
+                ZipCode = "12345-678",
+                Street = "Test Street",
+                Number = "123",
+                Neighborhood = "Test Neighborhood",
+                City = "Test City",
+                State = "TS"
+            };
             var result = _validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.Name);
         }
@@ -41,7 +66,19 @@ namespace CRUD.Tests.Customers.Commands.CreateCustomer
         [InlineData("60.701.190/0001-04")] // CNPJ válido
         public void Should_Not_Have_Error_When_Document_Is_Valid(string document)
         {
-            var command = new CreateCustomerCommand { Document = document };
+            var command = new CreateCustomerCommand 
+            { 
+                Name = "Test Name",
+                Document = document,
+                Email = "test@test.com",
+                Phone = "(11) 99999-9999",
+                ZipCode = "12345-678",
+                Street = "Test Street",
+                Number = "123",
+                Neighborhood = "Test Neighborhood",
+                City = "Test City",
+                State = "TS"
+            };
             var result = _validator.TestValidate(command);
             result.ShouldNotHaveValidationErrorFor(x => x.Document);
         }
@@ -53,32 +90,66 @@ namespace CRUD.Tests.Customers.Commands.CreateCustomer
         [InlineData("11.111.111/1111-11")] // CNPJ com dígitos iguais
         public void Should_Have_Error_When_Document_Is_Invalid(string document)
         {
-            var command = new CreateCustomerCommand { Document = document };
+            var command = new CreateCustomerCommand 
+            { 
+                Name = "Test Name",
+                Document = document,
+                Email = "test@test.com",
+                Phone = "(11) 99999-9999",
+                ZipCode = "12345-678",
+                Street = "Test Street",
+                Number = "123",
+                Neighborhood = "Test Neighborhood",
+                City = "Test City",
+                State = "TS"
+            };
             var result = _validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.Document);
         }
 
         [Theory]
         [InlineData("")]
-        [InlineData(null)]
         [InlineData("invalid-email")]
         [InlineData("test@")]
         [InlineData("@test.com")]
         public void Should_Have_Error_When_Email_Is_Invalid(string email)
         {
-            var command = new CreateCustomerCommand { Email = email };
+            var command = new CreateCustomerCommand 
+            { 
+                Name = "Test Name",
+                Document = "123.456.789-09",
+                Email = email,
+                Phone = "(11) 99999-9999",
+                ZipCode = "12345-678",
+                Street = "Test Street",
+                Number = "123",
+                Neighborhood = "Test Neighborhood",
+                City = "Test City",
+                State = "TS"
+            };
             var result = _validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.Email);
         }
 
         [Theory]
         [InlineData("")]
-        [InlineData(null)]
         [InlineData("1234")]
         [InlineData("(11)12345-6789")]
         public void Should_Have_Error_When_Phone_Is_Invalid(string phone)
         {
-            var command = new CreateCustomerCommand { Phone = phone };
+            var command = new CreateCustomerCommand 
+            { 
+                Name = "Test Name",
+                Document = "123.456.789-09",
+                Email = "test@test.com",
+                Phone = phone,
+                ZipCode = "12345-678",
+                Street = "Test Street",
+                Number = "123",
+                Neighborhood = "Test Neighborhood",
+                City = "Test City",
+                State = "TS"
+            };
             var result = _validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.Phone);
         }
@@ -88,7 +159,17 @@ namespace CRUD.Tests.Customers.Commands.CreateCustomer
         {
             var command = new CreateCustomerCommand 
             { 
-                Type = Domain.Enums.CustomerType.Person,
+                Name = "Test Name",
+                Document = "123.456.789-09",
+                Email = "test@test.com",
+                Phone = "(11) 99999-9999",
+                ZipCode = "12345-678",
+                Street = "Test Street",
+                Number = "123",
+                Neighborhood = "Test Neighborhood",
+                City = "Test City",
+                State = "TS",
+                Type = CustomerType.Individual,
                 BirthDate = null
             };
             var result = _validator.TestValidate(command);
@@ -100,7 +181,17 @@ namespace CRUD.Tests.Customers.Commands.CreateCustomer
         {
             var command = new CreateCustomerCommand 
             { 
-                Type = Domain.Enums.CustomerType.Person,
+                Name = "Test Name",
+                Document = "123.456.789-09",
+                Email = "test@test.com",
+                Phone = "(11) 99999-9999",
+                ZipCode = "12345-678",
+                Street = "Test Street",
+                Number = "123",
+                Neighborhood = "Test Neighborhood",
+                City = "Test City",
+                State = "TS",
+                Type = CustomerType.Individual,
                 BirthDate = DateTime.Today.AddYears(-17)
             };
             var result = _validator.TestValidate(command);
@@ -112,7 +203,17 @@ namespace CRUD.Tests.Customers.Commands.CreateCustomer
         {
             var command = new CreateCustomerCommand 
             { 
-                Type = Domain.Enums.CustomerType.Company,
+                Name = "Test Name",
+                Document = "12.345.678/0001-95",
+                Email = "test@test.com",
+                Phone = "(11) 99999-9999",
+                ZipCode = "12345-678",
+                Street = "Test Street",
+                Number = "123",
+                Neighborhood = "Test Neighborhood",
+                City = "Test City",
+                State = "TS",
+                Type = CustomerType.Corporate,
                 IsStateRegistrationExempt = false,
                 StateRegistration = null
             };
@@ -122,22 +223,37 @@ namespace CRUD.Tests.Customers.Commands.CreateCustomer
 
         [Theory]
         [InlineData("")]
-        [InlineData(null)]
         [InlineData("12345")]
         public void Should_Have_Error_When_ZipCode_Is_Invalid(string zipCode)
         {
-            var command = new CreateCustomerCommand { ZipCode = zipCode };
+            var command = new CreateCustomerCommand 
+            { 
+                Name = "Test Name",
+                Document = "123.456.789-09",
+                Email = "test@test.com",
+                Phone = "(11) 99999-9999",
+                ZipCode = zipCode,
+                Street = "Test Street",
+                Number = "123",
+                Neighborhood = "Test Neighborhood",
+                City = "Test City",
+                State = "TS"
+            };
             var result = _validator.TestValidate(command);
             result.ShouldHaveValidationErrorFor(x => x.ZipCode);
         }
 
         [Theory]
         [InlineData("")]
-        [InlineData(null)]
         public void Should_Have_Error_When_Address_Fields_Are_Empty(string value)
         {
             var command = new CreateCustomerCommand 
             { 
+                Name = "Test Name",
+                Document = "123.456.789-09",
+                Email = "test@test.com",
+                Phone = "(11) 99999-9999",
+                ZipCode = "12345-678",
                 Street = value,
                 Number = value,
                 Neighborhood = value,

@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using CRUD.Domain.Events;
+using CRUD.Application.Interfaces;
 using CRUD.Domain.Interfaces;
 using MediatR;
 
@@ -31,7 +32,7 @@ namespace CRUD.Application.Customers.Commands.DeleteCustomer
             if (customer == null)
                 throw new InvalidOperationException("Cliente não encontrado.");
 
-            await _customerRepository.DeleteAsync(customer, cancellationToken);
+            await _customerRepository.DeleteAsync(request.Id, cancellationToken);
             await _eventStore.SaveEvent(new CustomerDeletedEvent(customer.Id), "CustomerDeleted");
         }
     }

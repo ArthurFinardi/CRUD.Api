@@ -3,24 +3,25 @@ using System.Threading;
 using System.Threading.Tasks;
 using CRUD.Domain.Entities;
 using CRUD.Domain.Events;
-using CRUD.Domain.Interfaces;
+using CRUD.Application.Interfaces;
 using CRUD.Domain.ValueObjects;
+using CRUD.Domain.Interfaces;
 using MediatR;
 
 namespace CRUD.Application.Customers.Commands.UpdateCustomer
 {
     public class UpdateCustomerCommand : IRequest
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string ZipCode { get; set; }
-        public string Street { get; set; }
-        public string Number { get; set; }
-        public string Neighborhood { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
+        public required Guid Id { get; set; }
+        public required string Name { get; set; }
+        public required string Email { get; set; }
+        public required string Phone { get; set; }
+        public required string ZipCode { get; set; }
+        public required string Street { get; set; }
+        public required string Number { get; set; }
+        public required string Neighborhood { get; set; }
+        public required string City { get; set; }
+        public required string State { get; set; }
     }
 
     public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand>
@@ -59,15 +60,15 @@ namespace CRUD.Application.Customers.Commands.UpdateCustomer
                 request.State
             );
 
-            customer.Update(
+            var updatedCustomer = customer.Update(
                 request.Name,
                 request.Phone,
                 request.Email,
                 address
             );
 
-            await _customerRepository.UpdateAsync(customer, cancellationToken);
-            await _eventStore.SaveEvent(new CustomerUpdatedEvent(customer), "CustomerUpdated");
+            await _customerRepository.UpdateAsync(updatedCustomer, cancellationToken);
+            await _eventStore.SaveEvent(new CustomerUpdatedEvent(updatedCustomer), "CustomerUpdated");
         }
     }
 } 

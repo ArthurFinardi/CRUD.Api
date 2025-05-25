@@ -4,6 +4,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using CRUD.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using CRUD.Infrastructure.Data;
 
 namespace CRUD.Infrastructure.EventStore
 {
